@@ -24,16 +24,14 @@ void draw() {
     flwx += 5*dx;
     flwy += 5*dy;
     
-    if ((flwx < width-20)&&(flwx > 20)){
-      //dx = 1;
-    } else {
-      dx = dx*-1;
-    }
-    if( (flwy < height-20)&&(flwy >20)){
-      //dy = 1;
-    } else {
-      dy = dy*-1;
-    }
+    // change the direction when x or y are out of bound
+    if ((flwx > width-20) || (flwx < 20)){
+      dx = dx * -1;
+    } 
+    if( (flwy > height-20) || (flwy < 20)){
+      dy = dy * -1;
+    } 
+    
     float val = cos(radians(angle)) * 12.0;
     for (int a = b; a < 360+b; a += 75) {
       float xoff = cos(radians(a)) * val;
